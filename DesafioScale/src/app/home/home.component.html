@@ -1,0 +1,54 @@
+
+<form>
+
+	<div class="form-group">
+		<h4>Desafio Game Scale</h4>
+	</div>
+
+	<div class="form-group">
+		<label for="nome">Nome:</label>
+		<input type="text" class="form-control" [(ngModel)]="resultado.nome" id="nome" placeholder="Informe seu nome:" required name="nome">
+	</div>
+
+	<button type="button" class="btn btn-primary" (click)="jogar()" id="btnJogar">Jogar</button>
+	<button type="button" class="btn btn-primary" style="margin-left: 8px;" id="btnIniciar" [hidden]="true" [routerLink]="['/jogo', resultado.nome]" routerLinkActive="router-link-active">Iniciar</button>
+
+	<br/>
+	<br/>
+
+	<span>Seja bem-vindo ao mini-game Scale!</span>
+	<br/>
+	<span>Passo 1 - Digite o seu nome, clique em "Jogar" e depois em "Iniciar"</span>
+	<br/>
+	<span>Passo 2 - No devido campo, informe um numero entre 1 e 1000 e clique "Iniciar a Partida"</span>
+	<br/>
+	<span>Passo 3 - O jogo ira dar sugestoes para advinhar. O seu dever e informar se o "chute" e "maior", "menor" ou "igual" ao numero escolhido.</span>
+
+</form>
+
+<form id="tabelaInvisivel" [hidden]="ngOnInit()" >
+
+	<h4>RANKING - MELHORES JOGOS</h4>
+	
+	<table class="table" id="tabelaRank" >
+
+	<thead class="thread-dark">
+		<th>ID</th>
+		<th>Nome</th>
+		<th>Tempo</th>
+		<th>Chutes</th>
+	</thead>
+
+	<tbody>
+		<tr *ngFor="let result of resultados">
+			<td>{{result.id}}</td>
+			<td>{{result.nome}}</td>
+			<td>{{result.tempoVitoria}}</td>
+			<td>{{result.numeroChutes}}</td>
+		</tr>
+	</tbody>
+
+</table>
+</form>
+
+

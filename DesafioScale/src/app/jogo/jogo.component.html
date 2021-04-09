@@ -1,0 +1,53 @@
+
+<form>
+
+	<div class="form-group">
+		<h4>I Guess your number! - Scale</h4>
+	</div>
+
+	<div class="form-group">
+		<label for="nome">Nome:</label>
+		<input type="text" class="form-control" [(ngModel)]="resultado.nome" id="nome" placeholder="Informe seu nome:" readonly="true" name="nome">
+	</div>
+
+	<div>
+		<label for="tempoTotal">Tempo decorrido (seg):</label>
+		<input type="number" id="tempoTotal" name="tempoTotal" readonly="true" value="{{display }}">
+	</div>
+
+	<div class="form-group">
+		<label for="numero">Digite o seu numero:</label>
+		<input type="number" class="form-control" [(ngModel)]="numeroEscolhido" id="numero" placeholder="Informe seu numero:" name="numero" min="1" max="1000">
+	</div>
+
+	<button type="button" class="btn btn-primary" (click)="comecarJogo()" id="btnComecarJogo">Iniciar Partida</button>
+	<button type="button" class="btn btn-primary" style="margin-left: 8px;" id="btnSair" [routerLink]="['/home']" routerLinkActive="router-link-active">Sair</button>
+
+	<br/>
+	<br/>
+
+	<div>
+		<label for="guess">Chute:</label>
+		<input type="text" readonly="true" id="guess" name="guess" [(ngModel)]="chute">
+	</div>
+
+	<br/>
+
+	<button type="button" class="btn btn-primary" (click)="escolha1()">Maior</button>
+	<button type="button" class="btn btn-primary" style="margin-left: 8px;" (click)="escolha2()">Menor</button>
+	<button type="button" class="btn btn-primary" style="margin-left: 8px;" (click)="escolha3()">Igual</button>
+	<button type="button" class="btn btn-primary" style="margin-left: 8px;" (click)="finalizadoJogo()" [hidden]="true" id="btnFinalizar">Fim!</button>
+
+	<br/>
+	<br/>
+
+	<div>
+		<label for="tentativa">Numero da tentativa:</label>
+		<input type="text" readonly="true" id="tentativa" name="tentativa" [(ngModel)]="tentativa">
+	</div>
+
+	<div>
+		<span id="jogadas" name="jogadas" [hidden]="true" readonly="true">{{jogadas}}</span>
+	</div>
+
+</form>

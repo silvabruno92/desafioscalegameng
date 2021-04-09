@@ -1,0 +1,19 @@
+<table class="table">
+
+	<thead class="thread-dark">
+		<th>ID</th>
+		<th>Nome</th>
+		<th>Tempo</th>
+		<th>Chutes</th>
+	</thead>
+
+	<tbody>
+		<tr *ngFor="let result of resultados">
+			<td>{{result.id}}</td>
+			<td>{{result.nome}}</td>
+			<td>{{result.tempoVitoria}}</td>
+			<td>{{result.numeroChutes}}</td>
+		</tr>
+	</tbody>
+
+</table>
